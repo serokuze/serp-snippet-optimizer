@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SERP Snippet Optimizer — превью title и meta description в Google</title>
+  <meta name="description" content="Бесплатный SERP Snippet Optimizer: посмотрите, как title, URL и meta description выглядят в Google. Оптимизируйте сниппет для CTR. SEO-услуги: https://serokuze.com/" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://serokuze.com/" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #fff;
+      --text: #202124;
+      --muted: #5f6368;
+      --link: #1a0dab;
+      --green-url: #006621;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --ok: #059669;
+      --warn: #d97706;
+      --bad: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 28px 20px 24px;
+    }
+    header .wrap, main .wrap, footer .wrap { max-width: 1100px; margin: 0 auto; }
+    header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.02em; }
+    header p { margin: 0; color: #cbd5e1; max-width: 760px; }
+    header a { color: #93c5fd; }
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+    main { padding: 28px 20px 60px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 920px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(15,23,42,.04);
+    }
+    h2 { margin: 0 0 14px; font-size: 18px; }
+    label { display: block; font-weight: 700; font-size: 13px; margin: 12px 0 6px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: 15px/1.4 Arial, sans-serif;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-top: 6px;
+      color: var(--muted);
+    }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+    .toggle {
+      display: flex;
+      background: #f1f5f9;
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .toggle button {
+      border: 0;
+      background: transparent;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #334155;
+    }
+    .toggle button.active { background: #fff; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+    .preview-shell {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 180px;
+    }
+    .preview-shell.mobile { max-width: 420px; }
+    .serp-title {
+      color: var(--link);
+      font-size: 20px;
+      line-height: 1.3;
+      margin: 0 0 4px;
+      cursor: pointer;
+    }
+    .serp-title:hover { text-decoration: underline; }
+    .serp-url {
+      color: var(--green-url);
+      font-size: 14px;
+      margin: 0 0 6px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 14px;
+      line-height: 1.58;
+      margin: 0;
+    }
+    .cite { color: #202124; }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .content { margin-top: 28px; }
+    .content h2 { font-size: 22px; margin-top: 28px; }
+    .content a { color: var(--accent); }
+    .cta {
+      margin-top: 24px;
+      background: #0f172a;
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .cta a {
+      color: #93c5fd;
+      font-weight: 700;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+    }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Google SERP Snippet Optimizer</h1>
+      <p>
+        Посмотрите, как страница будет выглядеть в выдаче Google, и подгоните title и meta description под клик.
+        Инструмент бесплатный. Профессиональные SEO-аудиты и сопровождение —
+        <a href="https://serokuze.com/" rel="noopener">serokuze.com</a>.
+      </p>
+      <div class="badge">Клиентский инструмент · данные никуда не отправляются</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="grid">
+        <section class="card">
+          <h2>Параметры сниппета</h2>
+
+          <label for="keyword">Ключевой запрос (подсветка в превью)</label>
+          <input id="keyword" placeholder="например: seo audit" />
+
+          <label for="title">Title</label>
+          <input id="title" value="Technical SEO Audit & Strategy | SEROKUZE" />
+          <div class="meta">
+            <span id="titleChars">0 символов</span>
+            <span id="titlePx">0 px</span>
+          </div>
+
+          <label for="url">URL</label>
+          <input id="url" value="https://serokuze.com/seo-audit" />
+
+          <label for="desc">Meta description</label>
+          <textarea id="desc">SEO consultant with 9+ years of experience. Technical audits, content plans, and site reputation work that lasts for years. Get a prioritized roadmap for organic growth.</textarea>
+          <div class="meta">
+            <span id="descChars">0 символов</span>
+            <span id="descPx">0 px</span>
+          </div>
+
+          <div class="row">
+            <label class="row" style="margin:0;font-weight:500;">
+              <input type="checkbox" id="showDate" /> Показать дату в сниппете
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="row" style="justify-content:space-between;">
+            <h2 style="margin:0;">Превью Google</h2>
+            <div class="toggle" role="tablist">
+              <button id="btnDesktop" class="active" type="button">Desktop</button>
+              <button id="btnMobile" type="button">Mobile</button>
+            </div>
+          </div>
+          <div id="previewShell" class="preview-shell" style="margin-top:14px;">
+            <p class="serp-url" id="pUrl"></p>
+            <h3 class="serp-title" id="pTitle"></h3>
+            <p class="serp-desc" id="pDesc"></p>
+          </div>
+          <p class="hint">
+            Превью приблизительное. Google может переписать title и description, а обрезка зависит от ширины в пикселях, шрифта и устройства.
+          </p>
+        </section>
+      </div>
+
+      <article class="card content">
+        <h2>Зачем нужен SERP Snippet Optimizer</h2>
+        <p>
+          Сниппет — первое касание пользователя с вашей страницей в Google. Даже без роста позиции
+          более понятный title и полезный description могут поднять CTR и органический трафик.
+          Это особенно важно в конкурентных нишах, local SEO и ecommerce, когда обойти сильных игроков сложно.
+        </p>
+
+        <h2>Ориентиры длины</h2>
+        <ul>
+          <li><strong>Title:</strong> обычно до ~50–60 символов / около 580–600 px на desktop. Если длиннее — Google обрезает по целым словам и ставит «...».</li>
+          <li><strong>Meta description:</strong> классический ориентир ~150–160 символов / около 920–990 px. При дате публикации лимит короче (~139–140 символов).</li>
+          <li>Google считает не символы, а пиксели: широкие буквы (W, M) занимают больше места, чем i и l.</li>
+        </ul>
+
+        <h2>Как писать сниппет, который кликают</h2>
+        <ul>
+          <li>Ключевой смысл — в начале title, бренд — в конце.</li>
+          <li>Description отвечает на запрос и даёт причину кликнуть, без пустых обещаний.</li>
+          <li>Не повторяйте title один в один.</li>
+          <li>Помните: Google часто подставляет текст со страницы, если считает его релевантнее meta description.</li>
+        </ul>
+
+        <div class="cta">
+          <strong>Нужен не только превью, а рост трафика?</strong>
+          <p style="margin:8px 0 0;">
+            На <a href="https://serokuze.com/">serokuze.com</a> — технические аудиты, стратегия, контент-план и сопровождение SEO.
+            Senior SEO consultant, 9+ лет, SaaS, ecommerce, cloud, security и другие ниши.
+          </p>
+        </div>
+
+        <h2>Дисклеймер</h2>
+        <p>
+          Инструмент не связан с Google и не одобрен Google. Внешний вид выдачи воспроизведён в учебных целях
+          и может отличаться от реальной SERP. Данные вводятся только в браузере и не сохраняются на сервере.
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Бесплатный SERP Snippet Optimizer.
+      SEO-услуги и консультации: <a href="https://serokuze.com/" rel="noopener">https://serokuze.com/</a>
+    </div>
+  </footer>
+
+  <script>
+    const els = {
+      keyword: document.getElementById('keyword'),
+      title: document.getElementById('title'),
+      url: document.getElementById('url'),
+      desc: document.getElementById('desc'),
+      showDate: document.getElementById('showDate'),
+      pTitle: document.getElementById('pTitle'),
+      pUrl: document.getElementById('pUrl'),
+      pDesc: document.getElementById('pDesc'),
+      titleChars: document.getElementById('titleChars'),
+      titlePx: document.getElementById('titlePx'),
+      descChars: document.getElementById('descChars'),
+      descPx: document.getElementById('descPx'),
+      btnDesktop: document.getElementById('btnDesktop'),
+      btnMobile: document.getElementById('btnMobile'),
+      previewShell: document.getElementById('previewShell')
+    };
+
+    let device = 'desktop';
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function measure(text, font) {
+      ctx.font = font;
+      return Math.round(ctx.measureText(text || '').width);
+    }
+
+    function statusClass(value, good, warn) {
+      if (value <= good) return 'ok';
+      if (value <= warn) return 'warn';
+      return 'bad';
+    }
+
+    function highlight(text, keyword) {
+      const safe = (text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const kw = (keyword || '').trim();
+      if (!kw) return safe;
+      const re = new RegExp('(' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+      return safe.replace(re, '<b>$1</b>');
+    }
+
+    function truncateByWords(text, maxChars) {
+      if (!text) return '';
+      if (text.length <= maxChars) return text;
+      const cut = text.slice(0, maxChars);
+      const lastSpace = cut.lastIndexOf(' ');
+      return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trim() + ' ...';
+    }
+
+    function formatUrl(raw) {
+      try {
+        const u = new URL(raw.startsWith('http') ? raw : 'https://' + raw);
+        const host = u.hostname.replace(/^www\./, '');
+        const parts = u.pathname.split('/').filter(Boolean).slice(0, 3);
+        return host + (parts.length ? ' › ' + parts.map(decodeURIComponent).join(' › ') : '');
+      } catch {
+        return raw || 'example.com';
+      }
+    }
+
+    function render() {
+      const title = els.title.value.trim();
+      const desc = els.desc.value.trim();
+      const url = els.url.value.trim();
+      const keyword = els.keyword.value;
+
+      const titleLimit = device === 'desktop' ? 60 : 78;
+      const descLimit = els.showDate.checked ? 139 : 158;
+
+      const titleShown = truncateByWords(title, titleLimit);
+      let descShown = truncateByWords(desc, descLimit);
+      if (els.showDate.checked) {
+        const d = new Date();
+        const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        descShown = dateStr + ' — ' + descShown;
+      }
+
+      const titleFont = '20px Arial, Helvetica, sans-serif';
+      const descFont = '14px Arial, Helvetica, sans-serif';
+      const titlePx = measure(title, titleFont);
+      const descPx = measure(desc, descFont);
+
+      els.pTitle.innerHTML = highlight(titleShown || 'Page title will appear here', keyword);
+      els.pUrl.textContent = formatUrl(url);
+      els.pDesc.innerHTML = highlight(descShown || 'Your meta description will appear here.', keyword);
+
+      els.titleChars.className = statusClass(title.length, 60, 70);
+      els.descChars.className = statusClass(desc.length, 158, 170);
+      els.titlePx.className = statusClass(titlePx, 580, 620);
+      els.descPx.className = statusClass(descPx, 920, 1000);
+
+      els.titleChars.textContent = title.length + ' символов (ориентир ≤ 60)';
+      els.descChars.textContent = desc.length + ' символов (ориентир ≤ ' + descLimit + ')';
+      els.titlePx.textContent = titlePx + ' px title (ориентир ~580–600)';
+      els.descPx.textContent = descPx + ' px description (ориентир ~920–990)';
+    }
+
+    ['input', 'change'].forEach(ev => {
+      [els.keyword, els.title, els.url, els.desc, els.showDate].forEach(el => {
+        el.addEventListener(ev, render);
+      });
+    });
+
+    els.btnDesktop.addEventListener('click', () => {
+      device = 'desktop';
+      els.btnDesktop.classList.add('active');
+      els.btnMobile.classList.remove('active');
+      els.previewShell.classList.remove('mobile');
+      render();
+    });
+    els.btnMobile.addEventListener('click', () => {
+      device = 'mobile';
+      els.btnMobile.classList.add('active');
+      els.btnDesktop.classList.remove('active');
+      els.previewShell.classList.add('mobile');
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
